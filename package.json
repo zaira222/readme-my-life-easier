@@ -1,0 +1,22 @@
+{
+  "name": "readme-my-life-easier",
+  "version": "1.0.0",
+  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaira222/readme-my-life-easier.git"
+  },
+  "author": "zaira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaira222/readme-my-life-easier/issues"
+  },
+  "homepage": "https://github.com/zaira222/readme-my-life-easier#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
