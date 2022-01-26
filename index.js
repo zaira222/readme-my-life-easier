@@ -51,8 +51,18 @@ const promptRead = () => {
 {
         input: 'input',
         name: 'questions',
-        message: 'What questions do you have?'
+        message: 'What is your Github username?'
 },
+{
+        input: 'input',
+        name: 'email',
+        message: 'What is your email address?'
+}, 
+{
+        input: 'input',
+        name: 'instructions',
+        message: 'Any other Instructions on how others can reach you?'
+} 
 ]);
 };
 
@@ -65,25 +75,15 @@ const promptSections = (NewData) => {
     if(!NewData.ReadMes) {
         NewData.ReadMes = [];
     }
-    return inquirer.prompt([
+    return inquirer.prompt([   
+
         {
-            type: 'list',
-            name: 'table of contents',
-            message: 'table of contents?',
-            choices: ['title', 'description', 'table of contents', 'Installation', 'Usage', 'Liscense', 'Contributing', 'Tests', 'Questions'],
-    },
-           
-        {
-            type: 'input',
-            name: 'license',
-            message: 'What license does your project use?',
-    },
-    {
-        type: 'confirm',
-        name: 'badge',
-        message: 'Would you like to add a license?',
-        default: false
-    }
+            type: 'confirmlicense',
+            name: 'badge',
+            message: 'Would you like to add a license?',
+            default: true
+        },
+        
             ])
             .then(ReadMeData => {
                 NewData.ReadMes.push(ReadMeData);
@@ -93,7 +93,7 @@ const promptSections = (NewData) => {
                 } else {
                     return NewData;
                 }
-            });
+            }); 
         };
     
 
@@ -101,7 +101,13 @@ const promptSections = (NewData) => {
 promptRead()
 .then(promptSections)
 .then(NewData => {
-    const pageHTML = generateReadMe(NewData);
+    const pageHTML = generateReadMe(NewData)
+
+const generateMarkdown = require('./utils/generateMarkdown.js');
+generateMarkdown
+
+    
+    
 
 
 fs.writeFile('./index.html', pageHTML, err => {
