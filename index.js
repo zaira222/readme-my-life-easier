@@ -101,16 +101,10 @@ const promptSections = (NewData) => {
 promptRead()
 .then(promptSections)
 .then(NewData => {
-    const pageHTML = generateReadMe(NewData)
+    const pagemd = generateReadMe(NewData)
 
-const generateMarkdown = require('./utils/generateMarkdown.js');
-generateMarkdown
-
-    
-    
-
-
-fs.writeFile('./index.html', pageHTML, err => {
+// TODO: Create a function to write README file
+fs.writeFile('./readme.md', pagemd, err => {
     if (err) throw err;
 
     console.log('ReadMe complete!');
